@@ -1,3 +1,6 @@
+html, body {
+    min-height: 100%;
+}
 body {
     margin: 0;
     padding: 0;
@@ -99,3 +102,121 @@ body {
     font-family: MS Sans Serif;
 }
 main, .content { padding-bottom: 48px; }
+
+/* Desktop and icon */
+.desktop {
+    position: fixed;
+    inset: 0 0 40px 0; /* leave room for taskbar */
+    padding: 16px;
+    box-sizing: border-box;
+    background: url("img/desktop-background-frog.png") center center / 500px auto no-repeat;
+}
+.icon {
+    width: 72px;
+    text-align: center;
+    margin: 8px;
+    display: inline-block;
+    cursor: pointer;
+    color: #fff;
+    font-family: MS Sans Serif;
+}
+.icon-img { width: 48px; height: 48px; display: block; margin: 0 auto 6px; }
+.icon-label { font-size: 12px; color: #fff; text-shadow: 0 1px 0 rgba(0,0,0,0.6); }
+
+/* Win95-style window */
+.windows { position: fixed; inset: 8px 8px 48px 8px; pointer-events: none; }
+.win95-window {
+    pointer-events: auto;
+    position: absolute;
+    width: 480px;
+    height: 360px;
+    background: #cfcfcf;
+    border: 2px solid #000000;
+    box-shadow: 3px 3px 0 #6b6b6b;
+    font-family: MS Sans Serif;
+    overflow: hidden;
+}
+.win95-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(#1b44b6, #0b2e86);
+    color: #fff;
+    height: 28px;
+    padding: 0 6px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #000;
+}
+.win95-titlebar { cursor: grab; }
+.win95-window.dragging .win95-titlebar { cursor: grabbing; user-select: none; }
+.win95-window { touch-action: none; }
+.win95-window.fullscreen {
+    width: 100vw !important;
+    height: 100vh !important;
+    left: 0 !important;
+    top: 0 !important;
+}
+.title-left { display: flex; align-items: center; gap: 8px; }
+.title-text {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 13px;
+    line-height: 1;
+}
+.title-buttons { display: flex; gap: 4px; }
+.win95-btn {
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(#e6e6e6, #bfbfbf);
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #808080;
+    border-right: 2px solid #808080;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 12px;
+    color: #000;
+}
+.win95-btn:active { transform: translateY(1px); }
+.win95-content {
+    padding: 8px;
+    height: calc(100% - 28px);
+    overflow: auto;
+    background: #cfcfcf;
+    color: #000;
+}
+.win95-window.maximized {
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 40px !important; /* leave room for fake taskbar */
+    width: auto !important;
+    height: auto !important;
+}
+
+/* Resize handle (bottom-right) */
+.win95-resize {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    right: 4px;
+    bottom: 4px;
+    cursor: se-resize;
+    background-image: linear-gradient(135deg, rgba(0,0,0,0.25) 0 2px, transparent 2px 4px), linear-gradient(135deg, rgba(0,0,0,0.25) 0 2px, transparent 2px 4px);
+    background-size: 6px 6px, 6px 6px;
+    background-position: 0 0, 3px 3px;
+}
+.win95-window.maximized .win95-resize { display: none; }
+
+/* scrollbar style (simple) */
+.win95-content::-webkit-scrollbar { width: 14px; }
+.win95-content::-webkit-scrollbar-track { background: #d7d7d7; border-left: 1px solid #9a9a9a; }
+.win95-content::-webkit-scrollbar-thumb { background: linear-gradient(#bfbfbf,#9a9a9a); border: 1px solid #6b6b6b; }
+
+/* Spaced list inside window content */
+.win95-content .spaced-list { margin-top: 8px; padding-left: 20px; }
+.win95-content .spaced-list li { margin-bottom: 8px; }

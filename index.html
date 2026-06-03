@@ -6,6 +6,30 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="desktop" id="desktop" tabindex="0" aria-label="Desktop">
+    <div class="icon" role="button" tabindex="0" data-window='{"id":"site-navigation","title":"Site Navigation Guide","contentId":"site-navigation-content"}'>
+      <img src="img/site-guide-question.png" alt="Site guide" class="icon-img">
+      <div class="icon-label">Site Navigation Guide</div>
+    </div>
+  </div>
+
+  <template id="site-navigation-content">
+    <h3>Site Navigation</h3>
+    <p>Welcome to my humble abode! Here you will find basic instructions on how to navigate this small pocket of cyberspace!</p>
+    <ul class="spaced-list">
+      <li>Click icons on the desktop to open up their respective windows.</li>
+      <li>Use the X button found in the top right of any window you open to close it. Keep it tidy!</li>
+      <li>Use the maximize button (the little box to the left of the X button in the top right
+         of any window you open) to *MAXIMIZE* the window.</li>
+      <li>You can click and hold the top of any window to drag it around the screen.</li>
+      <li>You can even click and hold the bottom right of a window to resize it if you're 
+        one of those fancy multi-window multi-taskers!</li>
+      <li>You can re-open this guide at any time by clicking the "Site Navigation Guide" icon 
+        on the desktop. That's the one with the big question mark!</li>
+    </ul>
+  </template>
+
+  <div id="windows" class="windows" aria-live="polite"></div>
 
   <!-- Taskbar-->
   <div class="taskbar" role="toolbar" aria-label="Taskbar">
