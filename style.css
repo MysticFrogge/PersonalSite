@@ -111,6 +111,18 @@ main, .content { padding-bottom: 48px; }
     box-sizing: border-box;
     background: url("img/desktop-background-frog.png") center center / 500px auto no-repeat;
 }
+.desktop::after {
+    content: "";
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    width: 220px;
+    height: 120px;
+    background: url("img/HOPDOS.jpg") no-repeat center/contain;
+    opacity: 0.18;
+    filter: grayscale(100%);
+    pointer-events: none;
+}
 .icon {
     width: 72px;
     text-align: center;
