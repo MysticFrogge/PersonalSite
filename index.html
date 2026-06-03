@@ -11,17 +11,23 @@
   <div class="taskbar" role="toolbar" aria-label="Taskbar">
     <div class="taskbar-inner">
       <!--LEFT-->
-      <div class="taskbar-left"></div>
+      <div class="taskbar-left">
+        <div class="start-button" aria-hidden="true">
+          <img class="start-sprite" src="img/hat.png" alt="pixel-hat">
+          <span class="start-text">Start</span>
+        </div>
+      </div>
       <!--CENTER-->
       <div class="taskbar-center"></div>
       <!--RIGHT-->
       <div class="taskbar-right">
         <div class="tray-clock" aria-label="System clock">
-          <div class="tray-sprite" aria-hidden="true"></div>
+          <img class="clock-sprite" src="img/clocksprite.png" alt="pixel-clock">
           <div id="clock" class="tray-time">8:25 PM</div>
         </div>
       </div>
     </div>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>

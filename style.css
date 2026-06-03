@@ -29,7 +29,7 @@ body {
     height: 28px;
 }
 
-.taskbar-left { width: 120px; }
+.taskbar-left { width: 120px; display: flex; align-items: center; padding-left: 6px; }
 .taskbar-center { flex: 1; margin: 0 8px; }
 .taskbar-right {
     width: 160px;
@@ -51,16 +51,16 @@ body {
     border-top-width: 2px;
     border-left-width: 2px;
     box-shadow: inset 1 1px 1 #ffffff;
-    font-family: Arial, sans-serif;
-    font-size: 12px;
+    font-family: MS Sans Serif;
+    font-size: 14px;
     color: #000;
 }
 
-.tray-sprite {
-    width: 16px;
-    height: 16px;
-    background: #c0c0c0;
-    border: 1px solid #808080;
+.tray-clock img.clock-sprite {
+    width: 28px;
+    height: 28px;
+    position: relative;
+    top: -1px;
 }
 
 .tray-time {
@@ -68,4 +68,34 @@ body {
     padding: 0 2px;
 }
 
+.start-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 22px;
+    padding: 2px 8px;
+    margin-left: 2px;
+    background: #e6e6e6;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-bottom: 3px solid #808080;
+    border-right: 3px solid #808080;
+    box-shadow: inset 0 1px 0 #ffffff;
+    font-family: MS Sans Serif;
+    font-size: 12px;
+    color: #000;
+}
+
+.start-button img.start-sprite {
+    width: 26px;
+    height: auto;
+}
+
+.start-text {
+    font-size: 18px;
+    line-height: 1;
+    font-weight: bold;
+    padding-right: 0;
+    font-family: MS Sans Serif;
+}
 main, .content { padding-bottom: 48px; }
