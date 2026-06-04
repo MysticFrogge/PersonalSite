@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Personal Site</title>
+  <title>HopDOS</title>
+  <link rel="icon" type="image/png" sizes="256x256" href="img/MysticFrogTransparent.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,8 +12,19 @@
       <img src="img/site-guide-question.png" alt="Site guide" class="icon-img">
       <div class="icon-label">Site Navigation Guide</div>
     </div>
+    <br>
+    <div class="icon" role="button" tabindex="0" data-window='{"id":"about-os","title":"About Me","contentId":"about-me-content"}'>
+      <img src="img/smile.png" alt="Smile!" class="icon-img">
+      <div class="icon-label">About Me</div>
+    </div>
+    <br>
+    <div class="icon" role="button" tabindex="0" data-window='{"id":"my-projects","title":"My Projects","contentId":"my-projects-content"}'>
+      <img src="img/MyProjectsLogo.png" alt="My Projects" class="icon-img">
+      <div class="icon-label">My projects</div>
+    </div>
   </div>
 
+  <!--SITE NAVIGATION GUIDE WINDOW CONTENT-->
   <template id="site-navigation-content">
     <h3>Site Navigation</h3>
     <p>Welcome to my humble abode! Here you will find basic instructions on how to navigate this small pocket of cyberspace!</p>
@@ -27,6 +39,51 @@
       <li>You can re-open this guide at any time by clicking the "Site Navigation Guide" icon 
         on the desktop. That's the one with the big question mark!</li>
     </ul>
+  </template>
+
+  <template id="about-me-content">
+    <div class="about-me-header">
+      <img src="img/MysticFrogLogogrey.png" alt="Mystic Frog logo" class="about-me-logo">
+      <div class="about-me-text">
+        <div class="about-me-name">Devin J. D'Amelio</div>
+        <div class="about-me-aka">AKA.</div>
+        <div class="about-me-alias">MysticFrog</div>
+      </div>
+    </div>
+    <div class="about-me-body">
+      <div class="about-me-greeting">Hello!</div>
+      <div class="about-me-custom">
+        <p>My name is Devin. I am a Computer Science undergrad at
+        the wonderful Appalachia State University and an aspiring game developer. Welcome to my website!</p>
+        <p></p>
+        <p>This website is where I will both share/store my projects and display my work, but this section
+          is just about me! So if you don't care about that and just want to see my work, please navigate
+          to the [CONTENT DELETED] and give it a click! Otherwise, read on!</p>
+        <p></p>
+        <p>As is evident by this frankly overkill portfolio site, I am very passionate about programming. I find
+          it to be extremely enjoyable, and am happy to take any excuse to do it. My skills are pretty basic right 
+          now but I'm always trying to learn. However, for now, the things I can (generally) offer are:</p> 
+          <ul class="spaced-list">
+            <li>(Basic)Unity C# game development</li>
+            <li>General programming in Python, Java, and C#</li>
+            <li>(REALLY basic) Web development with HTML/CSS (Despite the impression this website may give)</li>
+          </ul>
+        <p>But those are just my skills. I'm passionate about a lot of other things too, such as:</p>
+          <ul class="spaced-list">
+            <li>Game development</li>
+            <li>Gaming</li>
+            <li>Music</li>
+            <li>Tabletop games</li>
+            <li>Snowboarding</li>
+            <li>Voice acting</li>
+          </ul>
+        <p>This website will be pretty baren for a while, but stay tuned! I plan to eventually fill it out when I've got the time.</p>
+      </div>
+    </div>
+  </template>
+
+  <template id="my-projects-content">
+    <p>Nothing to see here yet! Check back later! :^)</p>
   </template>
 
   <div id="windows" class="windows" aria-live="polite"></div>

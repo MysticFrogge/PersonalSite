@@ -86,8 +86,10 @@ function createWindow(opts) {
       if (!dragging) return;
       const dx = ev.clientX - startX;
       const dy = ev.clientY - startY;
+      // Prevent dragging above the top of the window to keep close button visible
+      const newTop = Math.max(0, origTop + dy);
       win.style.left = (origLeft + dx) + 'px';
-      win.style.top = (origTop + dy) + 'px';
+      win.style.top = newTop + 'px';
     };
     const up = (ev) => {
       dragging = false;
@@ -139,7 +141,8 @@ function createWindow(opts) {
       const desiredWidth = Math.max(width, Math.ceil(contentEl.scrollWidth + 24));
       const desiredHeight = Math.max(height, Math.ceil(contentEl.scrollHeight + 28 + 16));
       const maxWidth = Math.max(240, window.innerWidth - 32);
-      const maxHeight = Math.max(160, window.innerHeight - 48);
+      // Account for the window's vertical position to ensure bottom stays visible
+      const maxHeight = Math.max(160, window.innerHeight - y - 48);
       win.style.width = Math.min(desiredWidth, maxWidth) + 'px';
       win.style.height = Math.min(desiredHeight, maxHeight) + 'px';
     });
@@ -190,39 +193,42 @@ let zIndexCounter = 1000;
 function getNextZ() { return ++zIndexCounter; }
 
 //desktop icons
+function parseWindowData(data) {
+  try {
+    return JSON.parse(data);
+  } catch (e) {
+    console.error('Invalid window data', e);
+    return null;
+  }
+}
+
+function getWindowContent(cfg) {
+  if (cfg.contentId) {
+    const tpl = document.getElementById(cfg.contentId);
+    if (tpl instanceof HTMLTemplateElement) return tpl.innerHTML;
+  }
+  return cfg.content || '';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.icon').forEach(icon => {
     icon.addEventListener('click', () => {
-      const data = icon.getAttribute('data-window');
-      try {
-        const cfg = JSON.parse(data);
-        let content = cfg.content || '';
-        if (cfg.contentId) {
-          const tpl = document.getElementById(cfg.contentId);
-          if (tpl && tpl instanceof HTMLTemplateElement) content = tpl.innerHTML;
-        }
-        createWindow({ id: cfg.id, title: cfg.title, content, fitContent: Boolean(cfg.contentId) });
-      } catch (e) {
-        console.error('Invalid window data', e);
-      }
+      const cfg = parseWindowData(icon.dataset.window);
+      if (!cfg) return;
+      createWindow({
+        id: cfg.id,
+        title: cfg.title,
+        content: getWindowContent(cfg),
+        fitContent: Boolean(cfg.contentId),
+      });
     });
-    icon.addEventListener('keydown', (e) => { if (e.key === 'Enter') icon.dispatchEvent(new Event('click')); });
+
+    icon.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') icon.click();
+    });
   });
 
   const initialIcon = document.querySelector('.icon[data-window*="site-navigation"]');
-  if (initialIcon) {
-    const data = initialIcon.getAttribute('data-window');
-    try {
-      const cfg = JSON.parse(data);
-      let content = cfg.content || '';
-      if (cfg.contentId) {
-        const tpl = document.getElementById(cfg.contentId);
-        if (tpl && tpl instanceof HTMLTemplateElement) content = tpl.innerHTML;
-      }
-      createWindow({ id: cfg.id, title: cfg.title, content, fitContent: true });
-    } catch (e) {
-      console.error('Invalid window data', e);
-    }
-  }
+  if (initialIcon) initialIcon.click();
 });
 

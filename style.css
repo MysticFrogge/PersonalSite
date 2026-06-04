@@ -98,10 +98,8 @@ body {
     font-size: 18px;
     line-height: 1;
     font-weight: bold;
-    padding-right: 0;
     font-family: MS Sans Serif;
 }
-main, .content { padding-bottom: 48px; }
 
 /* Desktop and icon */
 .desktop {
@@ -135,6 +133,54 @@ main, .content { padding-bottom: 48px; }
 .icon-img { width: 48px; height: 48px; display: block; margin: 0 auto 6px; }
 .icon-label { font-size: 12px; color: #fff; text-shadow: 0 1px 0 rgba(0,0,0,0.6); }
 
+.about-me-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+.about-me-logo {
+    width: 270px;
+    height: auto;
+}
+.about-me-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: max-content;
+    font-family: MS Sans Serif;
+    color: #000;
+}
+.about-me-name,
+.about-me-alias {
+    font-size: 40px;
+    font-weight: bold;
+}
+.about-me-alias {
+    align-self: center;
+}
+.about-me-aka {
+    font-size: 20px;
+    font-style: italic;
+    margin: 4px 0;
+    align-self: center;
+}
+.about-me-body {
+    font-family: MS Sans Serif;
+    color: #000;
+    margin-top: 8px;
+}
+.about-me-greeting {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+.about-me-custom {
+    font-size: 15px;
+    line-height: 1.4;
+}
+
 /* Win95-style window */
 .windows { position: fixed; inset: 8px 8px 48px 8px; pointer-events: none; }
 .win95-window {
@@ -158,8 +204,8 @@ main, .content { padding-bottom: 48px; }
     padding: 0 6px;
     box-sizing: border-box;
     border-bottom: 2px solid #000;
+    cursor: grab;
 }
-.win95-titlebar { cursor: grab; }
 .win95-window.dragging .win95-titlebar { cursor: grabbing; user-select: none; }
 .win95-window { touch-action: none; }
 .win95-window.fullscreen {
