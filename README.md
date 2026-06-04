@@ -4,4 +4,5 @@ My personal portfolio website. AI used pretty extensively. Normally wouldn't do 
 Credits: 
 
 programming: A lot of it is from AI
+
 Sprite work: All me (Devin D/MysticFrog)
