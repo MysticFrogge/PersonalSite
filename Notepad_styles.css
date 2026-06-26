@@ -1,0 +1,65 @@
+/* =====================================================
+   NOTEPAD VIEWER
+   Add these rules to the bottom of your style.css
+   ===================================================== */
+
+/* Notepad windows use a white content area like the real thing */
+.win95-window:has(.notepad-shell) .win95-content {
+  padding: 0;
+  background: #fff;
+}
+
+.notepad-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.notepad-body {
+  flex: 1;
+  overflow: auto;
+  background: #fff;
+  /* Inset border to mimic the real Notepad textarea */
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  box-shadow: inset 1px 1px 0 #000;
+  margin: 2px;
+}
+
+.notepad-text {
+  margin: 0;
+  padding: 4px 6px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #000;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: #fff;
+  /* prevent the <pre> from collapsing */
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+/* Scrollbar inside notepad body — match the Win95 style already in place */
+.notepad-body::-webkit-scrollbar { width: 14px; }
+.notepad-body::-webkit-scrollbar-track { background: #d7d7d7; border-left: 1px solid #9a9a9a; }
+.notepad-body::-webkit-scrollbar-thumb { background: linear-gradient(#bfbfbf,#9a9a9a); border: 1px solid #6b6b6b; }
+
+/* Status bar at the bottom of the notepad */
+.notepad-statusbar {
+  flex-shrink: 0;
+  height: 20px;
+  background: #cfcfcf;
+  border-top: 2px solid #808080;
+  box-shadow: inset 0 1px 0 #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  font-family: MS Sans Serif, sans-serif;
+  font-size: 11px;
+  color: #000;
+}

@@ -57,7 +57,7 @@
         <p></p>
         <p>This website is where I will both share/store my projects and display my work, but this section
           is just about me! So if you don't care about that and just want to see my work, please navigate
-          to the [CONTENT DELETED] and give it a click! Otherwise, read on!</p>
+          to "My projects" and give it a click! Otherwise, read on!</p>
         <p></p>
         <p>As is evident by this frankly overkill portfolio site, I am very passionate about programming. I find
           it to be extremely enjoyable, and am happy to take any excuse to do it. My skills are pretty basic right 
@@ -81,8 +81,31 @@
     </div>
   </template>
 
+  <!-- MY PROJECTS WINDOW — shell only; JS populates it -->
   <template id="my-projects-content">
-    <p>Nothing to see here yet! Check back later! Sorry! :^)</p>
+    <div class="explorer-shell" id="explorer-shell">
+      <div class="explorer-toolbar">
+        <button class="explorer-back-btn" id="explorer-back" disabled>◀ Back</button>
+        <div class="explorer-address-bar">
+          <span class="explorer-address-label">Address</span>
+          <div class="explorer-address-value" id="explorer-address">My Projects</div>
+        </div>
+      </div>
+      <div class="explorer-panes">
+        <!-- LEFT: folder tree -->
+        <div class="explorer-tree">
+          <div class="explorer-tree-header">All Folders</div>
+          <div class="explorer-tree-body" id="explorer-tree-body"></div>
+        </div>
+        <!-- RIGHT: file area -->
+        <div class="explorer-files" id="explorer-files"></div>
+      </div>
+      <!-- STATUS BAR -->
+      <div class="explorer-statusbar">
+        <div class="explorer-status-cell" id="explorer-status">0 object(s)</div>
+        <div class="explorer-status-cell"></div>
+      </div>
+    </div>
   </template>
 
   <div id="windows" class="windows" aria-live="polite"></div>

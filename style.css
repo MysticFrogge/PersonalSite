@@ -278,3 +278,321 @@ body {
 /* Spaced list inside window content */
 .win95-content .spaced-list { margin-top: 8px; padding-left: 20px; }
 .win95-content .spaced-list li { margin-bottom: 8px; }
+
+/* =====================================================
+   Win95 File Explorer
+   ===================================================== */
+
+.explorer-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: -8px;
+  font-family: MS Sans Serif, sans-serif;
+  font-size: 12px;
+}
+
+/* ---- Toolbar / Address Bar ---- */
+.explorer-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 6px;
+  background: #cfcfcf;
+  border-bottom: 2px solid #808080;
+  box-shadow: inset 0 -1px 0 #fff;
+  flex-shrink: 0;
+}
+
+.explorer-back-btn {
+  height: 22px;
+  padding: 0 8px;
+  font-family: MS Sans Serif, sans-serif;
+  font-size: 11px;
+  color: #000;
+  background: #cfcfcf;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #808080;
+  border-right: 2px solid #808080;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.explorer-back-btn:disabled {
+  color: #808080;
+  cursor: default;
+}
+.explorer-back-btn:not(:disabled):active {
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+}
+
+.explorer-address-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 22px;
+  background: #fff;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  padding: 0 4px;
+  overflow: hidden;
+}
+
+.explorer-address-label {
+  font-size: 11px;
+  color: #000;
+  white-space: nowrap;
+  padding-right: 4px;
+  border-right: 1px solid #808080;
+  margin-right: 4px;
+  line-height: 18px;
+}
+
+.explorer-address-value {
+  font-size: 11px;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---- Two-Pane Area ---- */
+.explorer-panes {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* LEFT PANE */
+.explorer-tree {
+  width: 180px;
+  min-width: 180px;
+  background: #cfcfcf;
+  border-right: 2px solid #808080;
+  box-shadow: inset -1px 0 0 #fff;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.explorer-tree-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  background: linear-gradient(#1b44b6, #0b2e86);
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.explorer-tree-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 0;
+}
+
+.tree-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 4px;
+  cursor: default;
+  white-space: nowrap;
+  font-size: 12px;
+  color: #000;
+  user-select: none;
+}
+
+.tree-item:hover {
+  background: #d0d0d0;
+}
+
+.tree-item--selected {
+  background: #000080 !important;
+  color: #fff !important;
+}
+
+.tree-arrow {
+  font-size: 9px;
+  width: 12px;
+  flex-shrink: 0;
+  color: inherit;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1;
+}
+
+.tree-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* RIGHT PANE */
+.explorer-files {
+  flex: 1;
+  background: #fff;
+  box-shadow: inset 1px 1px 0 #808080;
+  overflow-y: auto;
+  padding: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 4px;
+}
+
+/* Folder icon in right pane */
+.explorer-folder-item {
+  width: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px;
+  cursor: default;
+  user-select: none;
+  font-size: 11px;
+  font-family: MS Sans Serif, sans-serif;
+  color: #000;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+.explorer-folder-item:hover {
+  background: #d0d0e8;
+  border: 1px dotted #000080;
+}
+
+.explorer-folder-item--selected {
+  background: #000080 !important;
+  color: #fff !important;
+  border: 1px dotted #fff !important;
+}
+
+.explorer-folder-icon {
+  font-size: 32px;
+  line-height: 1;
+  margin-bottom: 3px;
+}
+
+.explorer-folder-label {
+  word-break: break-word;
+  line-height: 1.2;
+}
+
+/* Empty state */
+.explorer-empty {
+  width: 100%;
+  text-align: center;
+  padding-top: 48px;
+  color: #808080;
+  font-size: 12px;
+}
+
+.explorer-empty-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.explorer-empty-sub {
+  font-size: 11px;
+  margin-top: 4px;
+  color: #a0a0a0;
+}
+
+/* STATUS BAR */
+.explorer-statusbar {
+  height: 22px;
+  background: #cfcfcf;
+  border-top: 2px solid #808080;
+  box-shadow: inset 0 1px 0 #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.explorer-status-cell {
+  flex: 1;
+  padding: 2px 6px;
+  font-size: 11px;
+  color: #000;
+  border: 1px solid #808080;
+  border-top-color: #fff;
+  border-left-color: #fff;
+  height: 16px;
+  line-height: 16px;
+  overflow: hidden;
+}
+
+.win95-window:has(.imgviewer-shell) .win95-content {
+  padding: 0;
+  background: #000;
+}
+
+.imgviewer-shell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: #000;
+  overflow: auto;
+}
+
+.imgviewer-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.win95-window:has(.imgviewer-shell) .win95-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  background: #000;
+}
+
+.imgviewer-shell {
+  flex: 1;
+  min-height: 0;  /* critical — lets flex child shrink */
+}
+
+.imgviewer-statusbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 22px;
+  background: #cfcfcf;
+  border-top: 2px solid #808080;
+  box-shadow: inset 0 1px 0 #fff;
+  padding: 0 6px;
+  flex-shrink: 0;
+}
+
+.imgviewer-status-text {
+  font-family: MS Sans Serif, sans-serif;
+  font-size: 11px;
+  color: #000;
+}
+
+.imgviewer-resize-hint {
+  width: 16px;
+  height: 16px;
+  background-image: linear-gradient(135deg, rgba(0,0,0,0.25) 0 2px, transparent 2px 4px),
+                    linear-gradient(135deg, rgba(0,0,0,0.25) 0 2px, transparent 2px 4px);
+  background-size: 6px 6px, 6px 6px;
+  background-position: 0 0, 3px 3px;
+  cursor: se-resize;
+}
