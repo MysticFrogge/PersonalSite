@@ -32,6 +32,7 @@ const FOLDER_TREE = {
       name: 'School projects',
       icon: 'img/MyProjectsLogo.png',
       children: [
+
         {
           id: 'Intel sustainability site',
           name: 'Intel sustainability site',
@@ -110,6 +111,25 @@ const FOLDER_TREE = {
               src: 'Project-files/intel-sustainability-site/intel-images/intel-2024.png',
             },
           ],
+        },
+        
+        {
+          id: 'Intel Check-In site',
+          name: 'Intel Check-In site',
+          icon: 'img/MyProjectsLogo.png',
+          children: [
+            {
+              type: 'txt',
+              name: 'Project_Summary.txt',
+              content: 'Intel Check-In Site\n-------------------------\nThis was a' +
+              'project for a career accelerator program\nwhere I built a website about Intel where users\ncan check in for an event under a team.\n\nBuilt with: HTML, CSS, JavaScript, *AI*\nDate: 2026',
+            },
+            {
+              type: 'img',
+              name: 'Main_Site.jpg',
+              src: 'Project-files/Intel-check-in/Intel_check_in.png',
+            }
+          ]
         },
       ],
     },
