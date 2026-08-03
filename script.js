@@ -131,6 +131,25 @@ const FOLDER_TREE = {
             }
           ]
         },
+
+        {
+          id: 'NASA space image site',
+          name: 'NASA space image site',
+          icon: 'img/MyProjectsLogo.png',
+          children: [
+            {
+              type: 'txt',
+              name: 'Project_Summary.txt',
+              content: 'NASA space image site\n-------------------------\nThis was a' +
+              'project for a career accelerator program\nwhere I built a website about NASA where users\ncan select a timeframe and get space images posted\nby NASA within that time.\n\nBuilt with: HTML, CSS, JavaScript, *AI*\nDate: 2026',
+            },
+            {
+              type: 'img',
+              name: 'Main_Site.jpg',
+              src: 'Project-files/NASA_space_explore/NASA_space_explore.png',
+            }
+          ]
+        },
       ],
     },
     // To add more folders or files, follow the patterns above.
